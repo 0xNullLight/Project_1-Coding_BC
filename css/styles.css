@@ -24,6 +24,42 @@ header nav h1 {
   text-align: center;
 }
 
+header h2 {
+  font-size: 1.5em;
+  text-align: center;
+  color: #ecf0f1;
+
+}
+
+/* Income Table Styling */
+
+table {
+  justify-content: center;
+  align-items: center;
+  border-collapse: collapse;
+  border: 2px solid rgb(140 140 140);
+  font: italic small-caps bold 16px/2 cursive;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  width: 75%;
+  margin: 0 auto;
+}
+
+th,
+td {
+  border: 1px solid rgb(160 160 160);
+  padding: 8px 6px;
+}
+
+td {
+  text-align: center;
+}
+
+.table-columns {
+  font-size: 1rem;
+  font: italic small-caps bold 16px/2 cursive;
+}
+
 /* Sidebar styling */
 #nav_sidebar {
   width: 20px; /* Thin width when not hovered */
