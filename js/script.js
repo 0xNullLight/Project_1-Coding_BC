@@ -1,3 +1,5 @@
+// script.js
+
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('#nav_sidebar a');
     const pages = document.querySelectorAll('.page');
