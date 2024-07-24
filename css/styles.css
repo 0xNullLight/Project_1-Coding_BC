@@ -17,7 +17,6 @@ header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern touch */
 }
 
-
 header nav h1 {
   padding: 5px;
   font-size: 1.5em;
@@ -99,6 +98,44 @@ main {
   padding: 20px;
   padding-top: 80px; /* Space for header */
   padding-bottom: 60px; /* Space for footer */
+}
+
+/* Page styling */
+.page {
+  display: none; /* Hide all pages by default */
+}
+
+#home-page {
+  display: block; /* Show the home page by default */
+}
+
+/* Form styling */
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
 }
 
 /* Footer styling */
