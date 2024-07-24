@@ -18,10 +18,6 @@
         <a href="#income" data-page="income">Income</a>
         <a href="#expense" data-page="expense">Expense</a>
         <a href="#subscription" data-page="subscription">Subscription</a>
-        <a href="index.html">Home</a>
-        <a href="income.html">Income</a>
-        <a href="#expense">Expense</a>
-        <a href="#subscription">Subscription</a>
     </aside>
     <main>
         <!-- Home Page -->
@@ -33,16 +29,20 @@
         <!-- Income Page -->
         <section id="income-page" class="page" style="display: none;">
             <h2>Income</h2>
-            <form id="income-form">
-                <label for="income-source">Source:</label>
-                <input type="text" id="income-source" name="source" required>
-                <label for="income-amount">Amount:</label>
-                <input type="number" id="income-amount" name="amount" step="0.01" required>
-                <button type="submit">Add Income</button>
-            </form>
-            <div id="income-list">
-                <h3>Income List:</h3>
-                <ul id="income-items"></ul>
+            <table>
+                <tr class="table-columns">
+                    <th>Date</th>
+                    <th>Income Source</th>
+                    <th>Amount $</th>
+                    <th>Account</th>
+                </tr>
+                <tr>
+                    <th id="date">24.04.2024</th>
+                    <th id="salary">Salary</th>
+                    <th id="amount">3500</th>
+                    <th id="account">US Bank</th>
+                </tr>
+            </table>
             </div>
         </section>
 
