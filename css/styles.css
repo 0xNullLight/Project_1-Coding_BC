@@ -1,57 +1,80 @@
-*{
-    box-sizing: border-box;
-    color: black;
-    padding: 0;
-    margin: 0 auto;
+/* General body styling */
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #f9f6f4;
+  color: #524444;
 }
 
-.header{
-    padding: 0;
-    margin: 0;
-    width:100%;
-    height: 4rem;
-    background-color: teal;
-    list-style: none;
-    display: flex;
+/* Header styling */
+header {
+  width: 100%;
+  background-color: #333;
+  border-bottom: 5px solid #4f4847;
+  color: #ecf0f1; /* Lighter text color for contrast */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern touch */
 }
 
-.nav ul{
-    height: 100%;
-    list-style: none;
-    display: flex;
+
+header nav h1 {
+  padding: 5px;
+  font-size: 1.5em;
+  text-align: center;
 }
 
-.nav li{
-    margin: 0 auto;
-    font-size: 2rem;
-    color:white;
-    margin-inline: 4rem;
-    line-height: 4rem;
-    outline: none;
+/* Sidebar styling */
+#nav_sidebar {
+  width: 20px; /* Thin width when not hovered */
+  background-color: #333;
+  color: white;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  transition: width 0.3s ease, background-color 0.3s ease;
+  border-radius: 0 10px 10px 0; /* Rounded corners */
 }
 
-a{
-    color: white;
-    outline: none;
-    border:none;
-    text-decoration: none;
+#nav_sidebar:hover {
+  width: 250px; /* Expanded width on hover */
+  background-color: #444;
 }
 
-body{
-    margin: 0 auto;
-    padding: 0;
+#nav_sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  margin: 5px 0;
+  border-radius: 10px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
 }
 
-main{
-    margin-top: 1rem;
-    text-align: center;
+#nav_sidebar a:hover {
+  background-color: #575757;
 }
 
-footer{
-    position: fixed;
-    bottom: 0;
-    padding: 1rem;
-    background-color: teal;
-    color: white;
-    width: 100%;
+/* Main content styling */
+main {
+  margin-left: 30px; /* Space for collapsed sidebar */
+  padding: 20px;
+  padding-top: 80px; /* Space for header */
+  padding-bottom: 60px; /* Space for footer */
+}
+
+/* Footer styling */
+footer {
+  background-color: #333;
+  color: #fbfbf3;
+  padding: 10px;
+  border-top: 5px solid #4f4847;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
 }
