@@ -14,12 +14,46 @@
         </nav>
     </header>
     <aside id="nav_sidebar">
-        <a href="#home" data-page="home">Home</a>
+        <a href="#home" data-page="home" class="ico">Home</a>
         <a href="#income" data-page="income">Income</a>
         <a href="#expense" data-page="expense">Expense</a>
         <a href="#subscription" data-page="subscription">Subscription</a>
     </aside>
     <main>
+        <!-- input form -->
+        <section id="home-page" class="page">
+            <h2>Input data here:</h2>
+            <form>
+                <div class="select">
+                    <label for="select">Income/Expense:</label>
+                    <select name="select" id="select">
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required />
+
+                <label for="income-source">Source:</label>
+                <input type="text" id="income-source" name="income-source" required />
+
+                <label for="amount">Amount:</label>
+                <input type="text" id="amount" name="amount" required />
+
+                <label for="option-select">Choose your account:</label>
+                <select name="options" id="option-select">    
+                    <option value="usBank">US Bank</option>
+                    <option value="wellsFargo">Wells Fargo</option>
+                    <option value="cash">Cash Account</option>
+                    <option value="wifesAccount">Wife's Account</option>
+                    <option value="savingsAccount">Saving Account</option>
+                </select>
+
+                <button type="submit" class="submit">Submit</button>
+            </form>
+        </section>
+
         <!-- Home Page -->
         <section id="home-page" class="page">
             <h2>Welcome to Finance Tracker</h2>
@@ -39,12 +73,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td id="date">24.04.2024</td>
-                        <td id="salary">Salary</td>
-                        <td id="amount">3500</td>
-                        <td id="account">US Bank</td>
-                    </tr>
+                    <!-- Income entries will be added here -->
                 </tbody>
             </table>
         </section>
@@ -52,17 +81,19 @@
         <!-- Expense Page -->
         <section id="expense-page" class="page">
             <h2>Expense</h2>
-            <form id="expense-form">
-                <label for="expense-category">Category:</label>
-                <input type="text" id="expense-category" name="category" required>
-                <label for="expense-amount">Amount:</label>
-                <input type="number" id="expense-amount" name="amount" step="0.01" required>
-                <button type="submit">Add Expense</button>
-            </form>
-            <div id="expense-list">
-                <h3>Expense List:</h3>
-                <ul id="expense-items"></ul>
-            </div>
+            <table class="styled-table">
+                <thead>
+                    <tr class="table-columns">
+                        <th>Date</th>
+                        <th>Expense Source</th>
+                        <th>Amount $</th>
+                        <th>Account</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Expense entries will be added here -->
+                </tbody>
+            </table>
         </section>
 
         <!-- Subscription Page (Placeholder) -->
