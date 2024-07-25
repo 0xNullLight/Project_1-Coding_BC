@@ -52,6 +52,43 @@ document.addEventListener('DOMContentLoaded', () => {
         form.reset();
     });
 
+    // Function to convert table to CSV format
+    function tableToCSV(table) {
+        const rows = Array.from(table.querySelectorAll('tr'));
+        const csvContent = rows.map(row => {
+            const cells = Array.from(row.querySelectorAll('th, td'));
+            return cells.map(cell => `"${cell.innerText.replace(/"/g, '""')}"`).join(',');
+        }).join('\n');
+        return csvContent;
+    }
+
+    // Function to trigger a CSV download
+    function downloadCSV(csvContent, filename) {
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.setAttribute('download', filename);
+        a.click();
+    }
+
+    // Add event listeners for download buttons
+    document.getElementById('download-income-csv').addEventListener('click', () => {
+        const csv = tableToCSV(document.querySelector('#income-page .styled-table'));
+        const filename = prompt('Enter filename for Income CSV:', 'income-data.csv');
+        if (filename) {
+            downloadCSV(csv, filename);
+        }
+    });
+
+    document.getElementById('download-expense-csv').addEventListener('click', () => {
+        const csv = tableToCSV(document.querySelector('#expense-page .styled-table'));
+        const filename = prompt('Enter filename for Expense CSV:', 'expense-data.csv');
+        if (filename) {
+            downloadCSV(csv, filename);
+        }
+    });
+
     // Display the home page initially
     document.getElementById('home-page').style.display = 'block';
 });
