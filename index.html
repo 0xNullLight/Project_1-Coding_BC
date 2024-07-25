@@ -14,12 +14,44 @@
         </nav>
     </header>
     <aside id="nav_sidebar">
-        <a href="#home" data-page="home">Home</a>
+        <a href="#home" data-page="home" class="ico">Home</a>
         <a href="#income" data-page="income">Income</a>
         <a href="#expense" data-page="expense">Expense</a>
         <a href="#subscription" data-page="subscription">Subscription</a>
     </aside>
     <main>
+        <!-- input form -->
+        <section id="home-page" class="page">
+            <h2>Input data here:</h2>
+
+            
+            <div class="select">
+                <label for="select">Income/Expense:</label>
+                <select name="select" id="select">
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+            </div>
+            
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required minlength="4" maxlength="8" size="10" />
+            <label for="income-source">Source:</label>
+            <input type="text" id="income-source" name="income-source" required minlength="4" maxlength="8" size="10" />
+            <label for="amount">Amount:</label>
+            <input type="text" id="amount" name="amount" required minlength="4" maxlength="8" size="10" />
+
+            <label for="option-select">Choose your account:</label>
+            <select name="options" id="option-select">    
+                <option value="usBank">US Bank</option>
+                <option value="wellsFargo">Wells Fargo</option>
+                <option value="cash">Cash Account</option>
+                <option value="wifesAccount">Wife`s Account</option>
+                <option value="savingsAccount">Saving Account</option>
+            </select>
+            <button type="submit" class="submit">Submit</button>
+        </section>
+
         <!-- Home Page -->
         <section id="home-page" class="page">
             <h2>Welcome to Finance Tracker</h2>
