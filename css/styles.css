@@ -72,6 +72,12 @@ main {
   display: none; /* Hide all pages by default */
 }
 
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .styled-table {
   border-collapse: collapse;
   margin: 25px 0;
@@ -81,7 +87,10 @@ main {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
+
+
 .styled-table thead tr {
+  justify-content: center;
   background-color: #333;
   color: #ffffff;
   text-align: left;
@@ -93,7 +102,7 @@ main {
 }
 
 
-}
+
 /* Form styling */
 form {
   margin-bottom: 20px;
