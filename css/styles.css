@@ -119,6 +119,28 @@ h2 {
     margin-left: -25px;
 }
 
+.icon-expense:before {
+    position: absolute;
+    content: '';
+    background:url(/icons/Expense.png);
+    background-size:cover;
+    position:absolute;
+    width:20px;
+    height:20px;
+    margin-left: -25px;
+}
+
+.icon-subscription:before { 
+    position: absolute;
+    content: '';
+    background:url(/icons/Expense.png);
+    background-size:cover;
+    position:absolute;
+    width:20px;
+    height:20px;
+    margin-left: -25px;
+}
+
 /* Main content styling */
 main {
   margin-left: 30px; /* Space for collapsed sidebar */
