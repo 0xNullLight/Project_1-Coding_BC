@@ -95,7 +95,7 @@ h2 {
   background-color: #444;
 }
 
-/* Home Icon */
+/* Icons */
 
 .icon-home:before {
     position: absolute;
@@ -106,7 +106,17 @@ h2 {
     width:20px;
     height:20px;
     margin-left: -25px;
-    
+}
+
+.icon-income:before {
+    position: absolute;
+    content: '';
+    background:url(/icons/Income.png);
+    background-size:cover;
+    position:absolute;
+    width:20px;
+    height:20px;
+    margin-left: -25px;
 }
 
 /* Main content styling */
