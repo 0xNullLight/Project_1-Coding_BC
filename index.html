@@ -32,10 +32,16 @@
                     <p>Us Bank</p>
                 </div>
                 <div class="card">
-                    <p>Us Bank</p>
+                    <p>Wells Fargo</p>
                 </div>
                 <div class="card">
-                    <p>Us Bank</p>
+                    <p>Cash Account</p>
+                </div>
+                <div class="card">
+                    <p>Wife`s Account</p>
+                </div>
+                <div class="card">
+                    <p>Saving Account</p>
                 </div>
             </div>
 
@@ -59,7 +65,7 @@
                         <option value="wifesAccount">Wife`s Account</option>
                         <option value="savingsAccount">Saving Account</option>
                     </select>
-                    <button type="submit" class="submit">Submit</button>
+                    <button type="submit" class="submit" id="income">Submit</button>
                 </div>
                 
                 
@@ -80,7 +86,7 @@
                         <option value="wifesAccount">Wife`s Account</option>
                         <option value="savingsAccount">Saving Account</option>
                     </select>
-                    <button type="submit" class="submit">Submit</button>
+                    <button type="submit" class="submit" id="expense">Submit</button>
                 </div>
 
             </div>
@@ -98,47 +104,51 @@
         <!-- Income Page -->
         <section id="income-page" class="page">
             <h2>Income</h2>
-            <table class="styled-table">
-                <thead>
-                    <tr class="table-columns">
-                        <th>Date</th>
-                        <th>Income Source</th>
-                        <th>Amount $</th>
-                        <th>Account</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="date">24.04.2024</td>
-                        <td id="salary">Salary</td>
-                        <td id="amount">3500</td>
-                        <td id="account">US Bank</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table">
+                <table class="styled-table">
+                    <thead>
+                        <tr class="table-columns">
+                            <th>Date</th>
+                            <th>Income Source</th>
+                            <th>Amount $</th>
+                            <th>Account</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="date">24.04.2024</td>
+                            <td id="salary">Salary</td>
+                            <td id="amount">3500</td>
+                            <td id="account">US Bank</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <!-- Expense Page -->
         <section id="expense-page" class="page">
             <h2>Expense</h2>
-            <table class="styled-table">
-                <thead>
-                    <tr class="table-columns">
-                        <th>Date</th>
-                        <th>Expense Source</th>
-                        <th>Amount $</th>
-                        <th>Account</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="date">24.04.2024</td>
-                        <td id="salary">Rent payment</td>
-                        <td id="amount">1300</td>
-                        <td id="account">US Bank</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table">
+                <table class="styled-table">
+                    <thead>
+                        <tr class="table-columns">
+                            <th>Date</th>
+                            <th>Expense Source</th>
+                            <th>Amount $</th>
+                            <th>Account</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="date">24.04.2024</td>
+                            <td id="salary">Rent payment</td>
+                            <td id="amount">1300</td>
+                            <td id="account">US Bank</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <!-- Subscription Page (Placeholder) -->

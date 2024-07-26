@@ -31,6 +31,8 @@ h2 {
   text-align: center;
 }
 
+
+
 /* Sidebar styling */
 #nav_sidebar {
   width: 20px; /* Thin width when not hovered */
@@ -155,6 +157,12 @@ main {
   font-family: sans-serif;
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
