@@ -25,6 +25,12 @@ header nav h1 {
   text-align: center;
 }
 
+/* h2 styling */
+
+h2 {
+  text-align: center;
+}
+
 /* Sidebar styling */
 #nav_sidebar {
   width: 20px; /* Thin width when not hovered */
@@ -89,7 +95,7 @@ header nav h1 {
 
 /* Home Icon */
 
-.ico:before {
+.icon-home:before {
     position: absolute;
     content: '';
     background:url(/icons/Home.png);
@@ -114,11 +120,33 @@ main {
   display: none; /* Hide all pages by default */
 }
 
-main {
+/* inputs content styling */
+
+
+.inputs {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
+
+.input {
+  max-width: 50%;
+  margin: 40px;
+}
+
+/* cards styling */
+
+.cards {
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+}
+
+.card {
+  margin: 0px 25px 0px 25px;
+}
+
+/* ========= */
 
 .styled-table {
   border-collapse: collapse;
