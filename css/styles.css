@@ -3,16 +3,16 @@
 /* General body styling */
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: #f9f6f4;
-  color: #524444;
+  background-color: #393646;
+  color: #F4EEE0;
 }
 
 /* Header styling */
 header {
   width: 100%;
-  background-color: #333;
-  border-bottom: 5px solid #4f4847;
-  color: #ecf0f1; /* Lighter text color for contrast */
+  background-color: #4F4557;
+  border-bottom: 5px solid #6D5D6E;
+  color: #F4EEE0; /* Lighter text color for contrast */
   top: 0;
   left: 0;
   z-index: 1000;
@@ -29,7 +29,7 @@ header nav h1 {
 #nav_sidebar {
   width: 20px; /* Thin width when not hovered */
   background-color: #333;
-  color: white;
+  color: #F4EEE0;
   top: 5%;
   left: 0;
   height: 50%;
@@ -46,7 +46,7 @@ header nav h1 {
 
 #nav_sidebar a {
   display: block;
-  color: white;
+  color: #F4EEE0;
   text-decoration: none;
   padding: 15px 20px;
   margin: 5px 0;
@@ -82,8 +82,8 @@ main {
 }
 
 .styled-table thead tr {
-  background-color: #333;
-  color: #ffffff;
+  background-color: #393646;
+  color: #F4EEE0;
   text-align: left;
 }
 
@@ -93,10 +93,10 @@ main {
 }
 
 
-}
 /* Form styling */
 form {
   margin-bottom: 20px;
+  color:#F4EEE0
 }
 
 label {
@@ -108,27 +108,29 @@ input {
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
+  background-color: #6D5D6E;
+  color:#F4EEE0
 }
 
 button {
   padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
+  background-color: #4F4557;
+  color: #F4EEE0;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #6D5D6E;
 }
 
 /* Footer styling */
 footer {
-  background-color: #333;
-  color: #fbfbf3;
+  background-color: #4F4557;
+  color: #F4EEE0;
   padding: 10px;
-  border-top: 5px solid #4f4847;
+  border-top: 5px solid #6D5D6E;
   position: fixed;
   bottom: 0;
   left: 0;
