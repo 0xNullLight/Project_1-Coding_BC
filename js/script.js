@@ -9,6 +9,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const amountInput = document.querySelector('#amount');
     const optionSelect = document.querySelector('#option-select');
     const typeSelect = document.querySelector('#select');
+    const toggleLink = document.getElementById('toggle-scheme');
+    const header = document.querySelector('header');
+    const navSidebar = document.querySelector('#nav_sidebar');
+    const footer = document.querySelector('footer');
+
+    let isOldScheme = false; // Initial scheme (false = light, true = dark)
+
+    // Update the toggle button text based on the current scheme
+    function updateToggleButtonText() {
+        if (isOldScheme) {
+            toggleLink.textContent = 'Switch to Light Mode';
+        } else {
+            toggleLink.textContent = 'Switch to Dark Mode';
+        }
+    }
+
+    // Call the function to set the initial button text
+    updateToggleButtonText();
 
     navLinks.forEach(link => {
         link.addEventListener('click', (event) => {
@@ -89,6 +107,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Display the home page initially
-    document.getElementById('home-page').style.display = 'block';
+    // Toggle between light and dark schemes
+    toggleLink.addEventListener('click', () => {
+        isOldScheme = !isOldScheme;
+
+        // Smooth transition by adding/removing class
+        document.body.classList.toggle('old-scheme', isOldScheme);
+        header.classList.toggle('old-scheme', isOldScheme);
+        navSidebar.classList.toggle('old-scheme', isOldScheme);
+        footer.classList.toggle('old-scheme', isOldScheme);
+
+        // Update table header rows
+        document.querySelectorAll('.styled-table thead tr').forEach(row => {
+            row.classList.toggle('old-scheme', isOldScheme);
+        });
+
+        // Update the toggle button text
+        updateToggleButtonText();
+    });
 });
