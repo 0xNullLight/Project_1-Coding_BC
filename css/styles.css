@@ -1,54 +1,84 @@
 /* styles.css */
 
-/* General body styling */
+/* Ensure the body and html take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* General body styling (Light Scheme) */
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: #f9f6f4;
-  color: #524444;
+  background-color: #f9f6f4; /* Light scheme background color */
+  color: #333; /* Darker text color for better readability */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Header styling */
+/* Dark mode styling */
+body.old-scheme {
+  background-color: #393646; /* Dark scheme background color */
+  color: #F4EEE0; /* Light text color for dark mode */
+}
+
+/* Flexbox layout for body */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styling (Light Scheme) */
 header {
-  width: 100%;
-  background-color: #333;
-  border-bottom: 5px solid #4f4847;
-  color: #ecf0f1; /* Lighter text color for contrast */
+  background-color: #343a40; /* Dark background for header */
+  color: #F4EEE0; /* Light text color for header */
+  position: fixed; /* Fix the header to the top */
   top: 0;
   left: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern touch */
-}
-
-header nav h1 {
+  width: 100%;
+  z-index: 1000; /* Ensure it sits on top of other content */
   padding: 10px;
-  font-size: 1.5em;
-  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern touch */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Sidebar styling */
+/* Dark mode header styling */
+header.old-scheme {
+  background-color: #6D5D6E; /* Dark background for header */
+  color: #F4EEE0; /* Light text color */
+}
+
+/* Main container adjustment to account for fixed header */
+.container-fluid {
+  flex: 1;
+  margin-top: 60px; /* Adjust based on header height */
+  display: flex;
+  flex-direction: row;
+}
+
+/* Sidebar styling (Light Scheme) */
 #nav_sidebar {
-  width: 20px; /* Thin width when not hovered */
-  background-color: #333;
-  color: white;
-  top: 5%;
+  position: fixed; /* Fix the sidebar to the left */
+  top: 60px; /* Adjust based on header height */
   left: 0;
-  height: 50%;
-  overflow: hidden;
+  width: 20px; /* Thin width when not hovered */
+  height: calc(100% - 60px); /* Full height minus header height */
+  background-color: #343a40; /* Dark background for sidebar */
+  color: #F4EEE0; /* Light text color */
+  overflow-y: auto; /* Scrollbar if content exceeds height */
   transition: width 0.3s ease, background-color 0.3s ease;
   border-radius: 0 10px 10px 0; /* Rounded corners */
-  position: fixed; /* Fix position */
+  z-index: 1000; /* Ensure it sits on top of other content */
 }
 
 #nav_sidebar:hover {
   width: 250px; /* Expanded width on hover */
-  background-color: #444;
+  background-color: #444; /* Slightly lighter background on hover */
 }
 
 #nav_sidebar a {
   display: block;
-  color: white;
-  text-decoration: none;
   padding: 15px 20px;
+  color: #F4EEE0; /* Light text color */
+  text-decoration: none;
   margin: 5px 0;
   border-radius: 10px;
   font-size: 1em;
@@ -56,13 +86,24 @@ header nav h1 {
 }
 
 #nav_sidebar a:hover {
-  background-color: #575757;
+  background-color: #575757; /* Darker hover background */
 }
 
-/* Main content styling */
+/* Dark mode sidebar styling */
+#nav_sidebar.old-scheme {
+  background-color: #333; /* Dark background for sidebar */
+  color: #F4EEE0; /* Light text color */
+}
+
+#nav_sidebar.old-scheme a {
+  color: #F4EEE0; /* Light text color */
+}
+
+/* Main content area styling */
 main {
-  margin-left: 30px; /* Space for collapsed sidebar */
+  margin-left: 250px; /* Margin for fixed sidebar */
   padding: 20px;
+  width: calc(100% - 250px); /* Full width minus sidebar width */
   padding-top: 80px; /* Space for header */
   padding-bottom: 60px; /* Space for footer */
 }
@@ -72,67 +113,57 @@ main {
   display: none; /* Hide all pages by default */
 }
 
-.styled-table {
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  font-family: sans-serif;
-  min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.styled-table thead tr {
-  background-color: #333;
-  color: #ffffff;
-  text-align: left;
-}
-
-.styled-table th,
-.styled-table td {
-    padding: 12px 15px;
-}
-
-
-}
-/* Form styling */
-form {
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  margin: 10px 0 5px;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
 /* Footer styling */
 footer {
-  background-color: #333;
-  color: #fbfbf3;
-  padding: 10px;
-  border-top: 5px solid #4f4847;
-  position: fixed;
+  background-color: #393646; /* Dark background for the footer */
+  color: #F4EEE0; /* Light text color */
+  position: fixed; /* Fix the footer to the bottom */
   bottom: 0;
   left: 0;
   width: 100%;
   text-align: center;
-  z-index: 1000;
+  padding: 10px;
+  z-index: 1000; /* Ensure it sits on top of other content */
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+}
+
+.table-bordered {
+  border: 1px solid #dee2e6;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f2f2f2;
+}
+
+/* Custom styling for tables in dark mode */
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  width: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.styled-table thead {
+  background-color: #343a40; /* Dark background for table headers */
+  color: #F4EEE0; /* Light text color for headers */
+}
+
+/* Dark mode table styling */
+.styled-table.old-scheme {
+  background-color: #444; /* Darker background for tables in dark mode */
+  color: #F4EEE0; /* Light text color */
+}
+
+.styled-table thead.old-scheme {
+  background-color: #6D5D6E; /* Lighter background for table header */
+}
+
+/* Button styling */
+button {
+  border: none;
 }
