@@ -18,11 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update the toggle button text based on the current scheme
     function updateToggleButtonText() {
-        if (isOldScheme) {
-            toggleLink.textContent = 'Switch to Light Mode';
-        } else {
-            toggleLink.textContent = 'Switch to Dark Mode';
-        }
+        toggleLink.textContent = isOldScheme ? 'Switch to Light Mode' : 'Switch to Dark Mode';
     }
 
     // Call the function to set the initial button text
