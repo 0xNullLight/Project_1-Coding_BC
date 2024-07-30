@@ -4,104 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finance Tracker</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/styles.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css"> <!-- Custom styles -->
 </head>
-<body>
-    <header>
-        <nav>
-            <h1>Finance Tracker</h1>
+<body class="light-scheme"> <!-- Default to light scheme -->
+    <header class="bg-dark text-light py-3">
+        <nav class="container">
+            <h1 class="text-center">Finance Tracker</h1>
         </nav>
     </header>
-    <aside id="nav_sidebar">
-        <a href="#home" data-page="home" class="ico">Home</a>
-        <a href="#income" data-page="income">Income</a>
-        <a href="#expense" data-page="expense">Expense</a>
-        <a href="#subscription" data-page="subscription">Subscription</a>
-    </aside>
-    <main>
-        <!-- input form -->
-        <section id="home-page" class="page">
-            <h2>Input data here:</h2>
-            <form>
-                <div class="select">
-                    <label for="select">Income/Expense:</label>
-                    <select name="select" id="select">
-                        <option value="income">Income</option>
-                        <option value="expense">Expense</option>
-                    </select>
-                </div>
 
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" required />
+    <div class="container-fluid">
+        <aside id="nav_sidebar" class="bg-dark text-light p-3">
+            <a href="#home" data-page="home" class="d-block text-light py-2">Home</a>
+            <a href="#income" data-page="income" class="d-block text-light py-2">Income</a>
+            <a href="#expense" data-page="expense" class="d-block text-light py-2">Expense</a>
+            <a href="#subscription" data-page="subscription" class="d-block text-light py-2">Subscription</a>
+        </aside>
 
-                <label for="income-source">Source:</label>
-                <input type="text" id="income-source" name="income-source" required />
+        <main>
+            <!-- Input form -->
+            <section id="home-page" class="page">
+                <h2>Input data here:</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="select">Income/Expense:</label>
+                        <select name="select" id="select" class="form-control">
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                    </div>
 
-                <label for="amount">Amount:</label>
-                <input type="text" id="amount" name="amount" required />
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" class="form-control" required />
+                    </div>
 
-                <label for="option-select">Choose your account:</label>
-                <select name="options" id="option-select">    
-                    <option value="usBank">US Bank</option>
-                    <option value="wellsFargo">Wells Fargo</option>
-                    <option value="cash">Cash Account</option>
-                    <option value="wifesAccount">Wife's Account</option>
-                    <option value="savingsAccount">Saving Account</option>
-                </select>
+                    <div class="form-group">
+                        <label for="income-source">Source:</label>
+                        <input type="text" id="income-source" name="income-source" class="form-control" required />
+                    </div>
 
-                <button type="submit" class="submit">Submit</button>
-            </form>
-        </section>
+                    <div class="form-group">
+                        <label for="amount">Amount:</label>
+                        <input type="text" id="amount" name="amount" class="form-control" required />
+                    </div>
 
-        <!-- Income Page -->
-        <section id="income-page" class="page">
-            <h2>Income</h2>
-            <button id="download-income-csv" class="download-button">Download Income CSV</button>
-            <table class="styled-table">
-                <thead>
-                    <tr class="table-columns">
-                        <th>Date</th>
-                        <th>Income Source</th>
-                        <th>Amount $</th>
-                        <th>Account</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Income entries will be added here -->
-                </tbody>
-            </table>
-        </section>
+                    <div class="form-group">
+                        <label for="option-select">Choose your account:</label>
+                        <select name="options" id="option-select" class="form-control">
+                            <option value="usBank">US Bank</option>
+                            <option value="wellsFargo">Wells Fargo</option>
+                            <option value="cash">Cash Account</option>
+                            <option value="wifesAccount">Wife's Account</option>
+                            <option value="savingsAccount">Saving Account</option>
+                        </select>
+                    </div>
 
-        <!-- Expense Page -->
-        <section id="expense-page" class="page">
-            <h2>Expense</h2>
-            <button id="download-expense-csv" class="download-button">Download Expense CSV</button>
-            <table class="styled-table">
-                <thead>
-                    <tr class="table-columns">
-                        <th>Date</th>
-                        <th>Expense Source</th>
-                        <th>Amount $</th>
-                        <th>Account</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Expense entries will be added here -->
-                </tbody>
-            </table>
-        </section>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </section>
 
-        <!-- Subscription Page (Placeholder) -->
-        <section id="subscription-page" class="page">
-            <h2>Subscription</h2>
-            <p>Manage your subscriptions here.</p>
-        </section>
-    </main>
-    <footer>
+            <!-- Income Page -->
+            <section id="income-page" class="page">
+                <h2>Income</h2>
+                <button id="download-income-csv" class="btn btn-secondary">Download Income CSV</button>
+                <table class="table table-bordered table-striped mt-3 styled-table" id="income-table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Date</th>
+                            <th>Income Source</th>
+                            <th>Amount $</th>
+                            <th>Account</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Income entries will be added here -->
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Expense Page -->
+            <section id="expense-page" class="page">
+                <h2>Expense</h2>
+                <button id="download-expense-csv" class="btn btn-secondary">Download Expense CSV</button>
+                <table class="table table-bordered table-striped mt-3 styled-table" id="expense-table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Date</th>
+                            <th>Expense Source</th>
+                            <th>Amount $</th>
+                            <th>Account</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Expense entries will be added here -->
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Subscription Page (Placeholder) -->
+            <section id="subscription-page" class="page">
+                <h2>Subscription</h2>
+                <p>Manage your subscriptions here.</p>
+            </section>
+        </main>
+    </div>
+
+    <footer class="bg-dark text-light py-3 text-center">
         <p>Project 1 | Group 4 | Bee Vang, Kevin Perez, Leonid Shapirov</p>
-        <a href="#" id="toggle-scheme">Switch to Dark Mode</a>
+        <a href="#" id="toggle-scheme" class="text-light">Switch to Dark Mode</a>
     </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
 </html>
