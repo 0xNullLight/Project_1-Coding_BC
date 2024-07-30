@@ -20,12 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* Store data from submit form income */
-
 const income = document.getElementById('income');
-
 
 income.addEventListener('click', function (event) {
     event.preventDefault();
+
+    
+    const incomeDate = document.getElementById('incomeDate');
+    const incomeSource = document.getElementById('incomeSource');
+    const incomeAmount = document.getElementById('incomeAmount');
+    const optionselectIncome = document.getElementById('optionselectIncome');
 
     const incomeSubmission = {
         date: incomeDate.value,
@@ -37,21 +41,42 @@ income.addEventListener('click', function (event) {
     let incomeTable = JSON.parse(localStorage.getItem('incomes')) //check if there any previous stored incomes
 
     if (!incomeTable) {
-        incomeTable = []
-    } incomeTable.push(incomeSubmission);
 
-    if (!incomeSubmission.date){
-        alert('Please select date!');
-    } else if (!incomeSubmission.source){
-        alert('Please enter source!');
-    } else if (!incomeSubmission.amount){
-        alert('Please enter amount!');
+        incomeTable = []
+    } 
+    
+    incomeTable.push(incomeSubmission);
+
+/* Dialog function */
+
+    if (!incomeSubmission.date) {
+        dialog.showModal();
+    } else if (!incomeSubmission.source) {
+        dialog.showModal();
+    } else if (!incomeSubmission.amount) {
+        dialog.showModal();
     } else {
         localStorage.setItem('incomes', JSON.stringify(incomeTable));
-        alert('Income was submitted!');
+        location.reload();
     }
-
 });
+
+
+/* Dialog function */
+
+
+const cancelButton = document.getElementById("cancel");
+const dialog = document.getElementById("incomeDialog");
+
+
+cancelButton.addEventListener("click", () => {
+    dialog.close("formNotSubmitted");
+});
+
+
+   
+
+
 
 
 /* Store data from submit form expense */
@@ -61,6 +86,11 @@ const expense = document.getElementById('expense');
 
 expense.addEventListener('click', function (event) {
     event.preventDefault();
+
+    const expenseDate = document.getElementById('expenseDate');
+    const expenseSource = document.getElementById('expenseSource');
+    const expenseAmount = document.getElementById('expenseAmount');
+    const optionselectExpense = document.getElementById('optionselectExpense');
 
     const expenseSubmission = {
         date: expenseDate.value,
@@ -72,20 +102,29 @@ expense.addEventListener('click', function (event) {
     let expenseTable = JSON.parse(localStorage.getItem('expenses')) //check if there any previous stored incomes
 
     if (!expenseTable) {
+
         expenseTable = []
-    } expenseTable.push(expenseSubmission);
+
+    } 
+    
+    expenseTable.push(expenseSubmission);
+
+    /* Dialog function */
 
     if (!expenseSubmission.date) {
-        alert('Please select date!');
+        dialog.showModal();
     } else if (!expenseSubmission.source) {
-        alert('Please enter source!');
+        dialog.showModal();
     } else if (!expenseSubmission.amount) {
-        alert('Please enter amount!');
+        dialog.showModal();
     } else {
         localStorage.setItem('expenses', JSON.stringify(expenseTable));
-        alert('Expense was submitted!');
+        location.reload();
     }
 });
+
+
+
 
 /* take information from incomes array and send it to income table */
 
@@ -96,6 +135,7 @@ const incomePage = document.querySelector('#iincome-elements');
 
 function renderIncome(){
     let storedIncomes = JSON.parse(localStorage.getItem('incomes'));
+    console.log('it works');
     if (storedIncomes) {
         for(let i = 0; i < storedIncomes.length; i++){
             let storedIncome = storedIncomes[i];
@@ -133,6 +173,7 @@ const expensePage = document.querySelector('#expense-elements');
 
 function renderExpense() {
     let storedExpenses = JSON.parse(localStorage.getItem('expenses'));
+    console.log('it work2');
     if (storedExpenses) {
         for (let i = 0; i < storedExpenses.length; i++) {
             let storedExpense = storedExpenses[i];
@@ -159,3 +200,5 @@ function renderExpense() {
 }
 
 document.addEventListener('DOMContentLoaded', renderExpense);
+
+

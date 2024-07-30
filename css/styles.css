@@ -216,6 +216,24 @@ tr, td {
 }
 
 
+/* dialog styling */
+
+dialog {
+  position: absolute;
+  align-self: center;
+  margin-left: 47%;
+}
+
+form p {
+  text-align: center;
+  margin: 20px;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
 /* Form styling */
 form {
