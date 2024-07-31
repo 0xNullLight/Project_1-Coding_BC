@@ -224,6 +224,16 @@ dialog {
   margin-left: 47%;
 }
 
+#ok, #cancel {
+    background-color: #333;
+}
+
+#ok:hover, #cancel:hover {
+  background-color: #444;
+}
+
+
+
 form p {
   text-align: center;
   margin: 20px;

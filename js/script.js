@@ -3,6 +3,26 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('#nav_sidebar a');
     const pages = document.querySelectorAll('.page');
+    const form = document.querySelector('section#home-page form');
+    const dateInput = document.querySelector('#date');
+    const sourceInput = document.querySelector('#income-source');
+    const amountInput = document.querySelector('#amount');
+    const optionSelect = document.querySelector('#option-select');
+    const typeSelect = document.querySelector('#select');
+    const toggleLink = document.getElementById('toggle-scheme');
+    const header = document.querySelector('header');
+    const navSidebar = document.querySelector('#nav_sidebar');
+    const footer = document.querySelector('footer');
+
+    let isOldScheme = false; // Initial scheme (false = light, true = dark)
+
+    // Update the toggle button text based on the current scheme
+    function updateToggleButtonText() {
+        toggleLink.textContent = isOldScheme ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+    }
+
+    // Call the function to set the initial button text
+    updateToggleButtonText();
 
     navLinks.forEach(link => {
         link.addEventListener('click', (event) => {
@@ -15,6 +35,91 @@ document.addEventListener('DOMContentLoaded', () => {
             // Show the selected page
             document.getElementById(`${targetPage}-page`).style.display = 'block';
         });
+    });
+
+    /* form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const type = typeSelect.value;
+        const date = dateInput.value;
+        const source = sourceInput.value;
+        const amount = amountInput.value;
+        const account = optionSelect.value;
+
+        // Create a new table row
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${date}</td>
+            <td>${source}</td>
+            <td>${amount}</td>
+            <td>${account}</td>
+        `;
+
+        // Append the new row to the appropriate table
+        if (type === 'income') {
+            document.querySelector('#income-page .styled-table tbody').appendChild(newRow);
+        } else if (type === 'expense') {
+            document.querySelector('#expense-page .styled-table tbody').appendChild(newRow);
+        }
+
+        // Clear the form fields
+        form.reset();
+    }); */
+
+    // Function to convert table to CSV format
+    function tableToCSV(table) {
+        const rows = Array.from(table.querySelectorAll('tr'));
+        const csvContent = rows.map(row => {
+            const cells = Array.from(row.querySelectorAll('th, td'));
+            return cells.map(cell => `"${cell.innerText.replace(/"/g, '""')}"`).join(',');
+        }).join('\n');
+        return csvContent;
+    }
+
+    // Function to trigger a CSV download
+    function downloadCSV(csvContent, filename) {
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.setAttribute('download', filename);
+        a.click();
+    }
+
+    // Add event listeners for download buttons
+    document.getElementById('download-income-csv').addEventListener('click', () => {
+        const csv = tableToCSV(document.querySelector('#income-page .styled-table'));
+        const filename = prompt('Enter filename for Income CSV:', 'income-data.csv');
+        if (filename) {
+            downloadCSV(csv, filename);
+        }
+    });
+
+    document.getElementById('download-expense-csv').addEventListener('click', () => {
+        const csv = tableToCSV(document.querySelector('#expense-page .styled-table'));
+        const filename = prompt('Enter filename for Expense CSV:', 'expense-data.csv');
+        if (filename) {
+            downloadCSV(csv, filename);
+        }
+    });
+
+    // Toggle between light and dark schemes
+    toggleLink.addEventListener('click', () => {
+        isOldScheme = !isOldScheme;
+
+        // Smooth transition by adding/removing class
+        document.body.classList.toggle('old-scheme', isOldScheme);
+        header.classList.toggle('old-scheme', isOldScheme);
+        navSidebar.classList.toggle('old-scheme', isOldScheme);
+        footer.classList.toggle('old-scheme', isOldScheme);
+
+        // Update table header rows
+        document.querySelectorAll('.styled-table thead tr').forEach(row => {
+            row.classList.toggle('old-scheme', isOldScheme);
+        });
+
+        // Update the toggle button text
+        updateToggleButtonText();
     });
 });
 
@@ -59,6 +164,7 @@ income.addEventListener('click', function (event) {
         localStorage.setItem('incomes', JSON.stringify(incomeTable));
         location.reload();
     }
+
 });
 
 
@@ -202,3 +308,16 @@ function renderExpense() {
 document.addEventListener('DOMContentLoaded', renderExpense);
 
 
+/* Math functions */
+
+function usBankMath() {
+    var usb = JSON.parse(localStorage.getItem('incomes'));
+    total = 0;
+    i = 0;
+    for (i = 0; i < amount.length; i++) {
+        total += parseFloat(usb[i].amount);
+    } console.log(total);
+}
+
+usBankMath();
+ 
