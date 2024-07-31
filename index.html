@@ -27,27 +27,32 @@
             <!-- Home Page -->
             <!-- input form -->
             <section id="home-page" class="page">
-        
+
                 <!-- cards suppose to be here -->
                 <div class="cards">
                     <div class="card" id="us-bank-card">
                         <p>Us Bank</p>
+                        <span id="usBankAccountAmount"></span>
                     </div>
                     <div class="card" id="wells-fargo-card">
                         <p>Wells Fargo</p>
+                        <span id="wfBankAccountAmount"></span>
                     </div>
                     <div class="card" id="cash-account-card">
                         <p>Cash Account</p>
+                        <span id="cashAccountAmount"></span>
                     </div>
                     <div class="card" id="wifes-account-card">
                         <p>Wife`s Account</p>
+                        <span id="wifesAccountAmount"></span>
                     </div>
                     <div class="card" id="saving-account-card">
                         <p>Saving Account</p>
+                        <span id="savingAccountAmount"></span>
                     </div>
                 </div>
-        
-        
+
+
                 <h2 class="input-p">Input data here:</h2>
                 <div class="inputs">
                     <div class="input">
@@ -58,8 +63,9 @@
                         <input type="text" id="incomeSource" name="income-source" required minlength="" maxlength=""
                             size="10" />
                         <label for="amount">Amount:</label>
-                        <input type="text" id="incomeAmount" name="amount" required minlength="4" maxlength="8" size="10" />
-        
+                        <input type="text" id="incomeAmount" name="amount" required minlength="4" maxlength="8"
+                            size="10" />
+
                         <label for="option-select">Choose your account:</label>
                         <select name="options" id="optionselectIncome">
                             <option value="Us Bank">US Bank</option>
@@ -70,7 +76,7 @@
                         </select>
                         <button type="submit" class="submit" id="income">Submit</button>
                     </div>
-        
+
                     <dialog id="incomeDialog">
                         <form method="dialog">
                             <p>Please complete the form!</p>
@@ -80,19 +86,21 @@
                             </div>
                         </form>
                     </dialog>
-        
-        
-        
+
+
+
                     <div class="input">
                         <label for="select" class="select-header">Expense:</label>
                         <label for="date">Date:</label>
-                        <input type="date" id="expenseDate" name="date" required minlength="4" maxlength="8" size="10" />
+                        <input type="date" id="expenseDate" name="date" required minlength="4" maxlength="8"
+                            size="10" />
                         <label for="expense-source">Source:</label>
                         <input type="text" id="expenseSource" name="expense-source" required minlength="" maxlength=""
                             size="10" />
                         <label for="amount">Amount:</label>
-                        <input type="text" id="expenseAmount" name="amount" required minlength="4" maxlength="8" size="10" />
-        
+                        <input type="text" id="expenseAmount" name="amount" required minlength="4" maxlength="8"
+                            size="10" />
+
                         <label for="option-select">Choose your account:</label>
                         <select name="options" id="optionselectExpense">
                             <option value="Us Bank">US Bank</option>
@@ -103,13 +111,13 @@
                         </select>
                         <button type="submit" class="submit" id="expense">Submit</button>
                     </div>
-        
+
                 </div>
             </section>
-        
-        
-        
-        
+
+
+
+
             <!-- Income Page -->
             <section id="income-page" class="page">
                 <h2>Income</h2>
@@ -135,12 +143,12 @@
                     </table>
                 </div>
             </section>
-        
+
             <!-- Expense Page -->
             <section id="expense-page" class="page">
                 <h2>Expense</h2>
                 <button id="download-expense-csv" class="btn btn-secondary">Download Expense CSV</button>
-                <div class="table table-bordered table-striped mt-3 styled-table" id="expense-table"> 
+                <div class="table table-bordered table-striped mt-3 styled-table" id="expense-table">
                     <table class="styled-table">
                         <thead>
                             <tr class="table-columns">
@@ -161,7 +169,7 @@
                     </table>
                 </div>
             </section>
-        
+
             <!-- Subscription Page (Placeholder) -->
             <section id="subscription-page" class="page">
                 <h2>Subscription</h2>

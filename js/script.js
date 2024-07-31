@@ -130,7 +130,7 @@ const income = document.getElementById('income');
 income.addEventListener('click', function (event) {
     event.preventDefault();
 
-    
+
     const incomeDate = document.getElementById('incomeDate');
     const incomeSource = document.getElementById('incomeSource');
     const incomeAmount = document.getElementById('incomeAmount');
@@ -148,11 +148,11 @@ income.addEventListener('click', function (event) {
     if (!incomeTable) {
 
         incomeTable = []
-    } 
-    
+    }
+
     incomeTable.push(incomeSubmission);
 
-/* Dialog function */
+    /* Dialog function */
 
     if (!incomeSubmission.date) {
         dialog.showModal();
@@ -180,7 +180,7 @@ cancelButton.addEventListener("click", () => {
 });
 
 
-   
+
 
 
 
@@ -211,8 +211,8 @@ expense.addEventListener('click', function (event) {
 
         expenseTable = []
 
-    } 
-    
+    }
+
     expenseTable.push(expenseSubmission);
 
     /* Dialog function */
@@ -239,11 +239,10 @@ const incomePosts = document.querySelector('#income-elements');
 const incomeSebmit = document.querySelector('#income');
 const incomePage = document.querySelector('#iincome-elements');
 
-function renderIncome(){
+function renderIncome() {
     let storedIncomes = JSON.parse(localStorage.getItem('incomes'));
-    console.log('it works');
     if (storedIncomes) {
-        for(let i = 0; i < storedIncomes.length; i++){
+        for (let i = 0; i < storedIncomes.length; i++) {
             let storedIncome = storedIncomes[i];
             let incomePostTable = document.createElement('tr');
             let incomePostDate = document.createElement('td');
@@ -252,17 +251,17 @@ function renderIncome(){
             let incomePostAccount = document.createElement('td');
 
 
-           incomePostDate.innerHTML = storedIncome.date;
-           incomePostSource.innerHTML = storedIncome.source;
-           incomePostAmount.innerHTML = storedIncome.amount;
-           incomePostAccount.innerHTML = storedIncome.account;
+            incomePostDate.innerHTML = storedIncome.date;
+            incomePostSource.innerHTML = storedIncome.source;
+            incomePostAmount.innerHTML = storedIncome.amount;
+            incomePostAccount.innerHTML = storedIncome.account;
 
 
-           incomePosts.appendChild(incomePostTable);
-           incomePostTable.appendChild(incomePostDate);
-           incomePostTable.appendChild(incomePostSource);
-           incomePostTable.appendChild(incomePostAmount);
-           incomePostTable.appendChild(incomePostAccount);
+            incomePosts.appendChild(incomePostTable);
+            incomePostTable.appendChild(incomePostDate);
+            incomePostTable.appendChild(incomePostSource);
+            incomePostTable.appendChild(incomePostAmount);
+            incomePostTable.appendChild(incomePostAccount);
         }
     }
 }
@@ -279,7 +278,6 @@ const expensePage = document.querySelector('#expense-elements');
 
 function renderExpense() {
     let storedExpenses = JSON.parse(localStorage.getItem('expenses'));
-    console.log('it work2');
     if (storedExpenses) {
         for (let i = 0; i < storedExpenses.length; i++) {
             let storedExpense = storedExpenses[i];
@@ -310,14 +308,104 @@ document.addEventListener('DOMContentLoaded', renderExpense);
 
 /* Math functions */
 
-function usBankMath() {
+function totalMath() {
     var usb = JSON.parse(localStorage.getItem('incomes'));
     total = 0;
     i = 0;
-    for (i = 0; i < amount.length; i++) {
+    for (i = 0; i < usb.length; i++) {
         total += parseFloat(usb[i].amount);
-    } console.log(total);
+    } console.log(`total income $: ${total}`);
+
+};
+
+totalMath();
+
+/* ========= */
+/* var usb = JSON.parse(localStorage.getItem('incomes'));
+console.log(usb.filter(
+    (element) => element.account === 'Us Bank')); */
+
+
+/* Filter accounts and display total of each account on card */
+
+
+/* Us Bank Card total */
+
+function usBankTotal() {
+    var usb = JSON.parse(localStorage.getItem('incomes'));
+    usbTotal = 0;
+    for (let i = 0; i < usb.length; i++) {
+        if (usb[i].account === 'Us Bank') {
+            usbTotal += parseFloat(usb[i].amount);
+            console.log(`Us Bank total $: ${usbTotal}`);
+            document.getElementById('usBankAccountAmount').innerHTML = `${usbTotal} $`;
+        }
+    }
 }
 
-usBankMath();
- 
+usBankTotal();
+
+/* Wells Fargo Card total */
+
+function wellsFargoBankTotal() {
+    var usb = JSON.parse(localStorage.getItem('incomes'));
+    wfbTotal = 0;
+    for (let i = 0; i < usb.length; i++) {
+        if (usb[i].account === 'Wells Fargo') {
+            wfbTotal += parseFloat(usb[i].amount);
+            console.log(`Wells Fargo total $: ${wfbTotal}`);
+            document.getElementById('wfBankAccountAmount').innerHTML = `${wfbTotal} $`;
+        }
+    }
+}
+
+wellsFargoBankTotal();
+
+/* Cash Account Card total */
+
+function cashAccountTotal() {
+    var usb = JSON.parse(localStorage.getItem('incomes'));
+    cashTotal = 0;
+    for (let i = 0; i < usb.length; i++) {
+        if (usb[i].account === 'Cash Account') {
+            cashTotal += parseFloat(usb[i].amount);
+            console.log(`Cash Account total $: ${cashTotal}`);
+            document.getElementById('cashAccountAmount').innerHTML = `${cashTotal} $`;
+        }
+    }
+}
+
+cashAccountTotal();
+
+/* Wife`s Account Card total */
+
+function wifesAccountTotal() {
+    var usb = JSON.parse(localStorage.getItem('incomes'));
+    waTotal = 0;
+    for (let i = 0; i < usb.length; i++) {
+        if (usb[i].account === 'Wife`s Account') {
+            waTotal += parseFloat(usb[i].amount);
+            console.log(`Wife's Account total $: ${waTotal}`);
+            document.getElementById('wifesAccountAmount').innerHTML = `${waTotal} $`;
+        }
+    }
+}
+
+wifesAccountTotal();
+
+
+/* Sawing Account Card Total */
+
+function savingAccountTotal() {
+    var usb = JSON.parse(localStorage.getItem('incomes'));
+    saTotal = 0;
+    for (let i = 0; i < usb.length; i++) {
+        if (usb[i].account === 'Savings Account') {
+            saTotal += parseFloat(usb[i].amount);
+            console.log(`Saving Account total $: ${saTotal}`);
+            document.getElementById('savingAccountAmount').innerHTML = `${saTotal} $`;
+        }
+    }
+}
+
+savingAccountTotal();
