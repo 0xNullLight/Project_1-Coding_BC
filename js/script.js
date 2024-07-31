@@ -9,6 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const amountInput = document.querySelector('#amount');
     const optionSelect = document.querySelector('#option-select');
     const typeSelect = document.querySelector('#select');
+    const toggleLink = document.getElementById('toggle-scheme');
+    const header = document.querySelector('header');
+    const navSidebar = document.querySelector('#nav_sidebar');
+    const footer = document.querySelector('footer');
+
+    let isOldScheme = false; // Initial scheme (false = light, true = dark)
+
+    // Update the toggle button text based on the current scheme
+    function updateToggleButtonText() {
+        toggleLink.textContent = isOldScheme ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+    }
+
+    // Call the function to set the initial button text
+    updateToggleButtonText();
 
     navLinks.forEach(link => {
         link.addEventListener('click', (event) => {
@@ -23,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    form.addEventListener('submit', (event) => {
+    /* form.addEventListener('submit', (event) => {
         event.preventDefault();
 
         const type = typeSelect.value;
@@ -50,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Clear the form fields
         form.reset();
-    });
+    }); */
 
     // Function to convert table to CSV format
     function tableToCSV(table) {
@@ -89,6 +103,221 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Display the home page initially
-    document.getElementById('home-page').style.display = 'block';
+    // Toggle between light and dark schemes
+    toggleLink.addEventListener('click', () => {
+        isOldScheme = !isOldScheme;
+
+        // Smooth transition by adding/removing class
+        document.body.classList.toggle('old-scheme', isOldScheme);
+        header.classList.toggle('old-scheme', isOldScheme);
+        navSidebar.classList.toggle('old-scheme', isOldScheme);
+        footer.classList.toggle('old-scheme', isOldScheme);
+
+        // Update table header rows
+        document.querySelectorAll('.styled-table thead tr').forEach(row => {
+            row.classList.toggle('old-scheme', isOldScheme);
+        });
+
+        // Update the toggle button text
+        updateToggleButtonText();
+    });
 });
+
+
+/* Store data from submit form income */
+const income = document.getElementById('income');
+
+income.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    
+    const incomeDate = document.getElementById('incomeDate');
+    const incomeSource = document.getElementById('incomeSource');
+    const incomeAmount = document.getElementById('incomeAmount');
+    const optionselectIncome = document.getElementById('optionselectIncome');
+
+    const incomeSubmission = {
+        date: incomeDate.value,
+        source: incomeSource.value,
+        amount: incomeAmount.value,
+        account: optionselectIncome.value,
+    };
+
+    let incomeTable = JSON.parse(localStorage.getItem('incomes')) //check if there any previous stored incomes
+
+    if (!incomeTable) {
+
+        incomeTable = []
+    } 
+    
+    incomeTable.push(incomeSubmission);
+
+/* Dialog function */
+
+    if (!incomeSubmission.date) {
+        dialog.showModal();
+    } else if (!incomeSubmission.source) {
+        dialog.showModal();
+    } else if (!incomeSubmission.amount) {
+        dialog.showModal();
+    } else {
+        localStorage.setItem('incomes', JSON.stringify(incomeTable));
+        location.reload();
+    }
+
+});
+
+
+/* Dialog function */
+
+
+const cancelButton = document.getElementById("cancel");
+const dialog = document.getElementById("incomeDialog");
+
+
+cancelButton.addEventListener("click", () => {
+    dialog.close("formNotSubmitted");
+});
+
+
+   
+
+
+
+
+/* Store data from submit form expense */
+
+const expense = document.getElementById('expense');
+
+
+expense.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    const expenseDate = document.getElementById('expenseDate');
+    const expenseSource = document.getElementById('expenseSource');
+    const expenseAmount = document.getElementById('expenseAmount');
+    const optionselectExpense = document.getElementById('optionselectExpense');
+
+    const expenseSubmission = {
+        date: expenseDate.value,
+        source: expenseSource.value,
+        amount: expenseAmount.value,
+        account: optionselectExpense.value,
+    };
+
+    let expenseTable = JSON.parse(localStorage.getItem('expenses')) //check if there any previous stored incomes
+
+    if (!expenseTable) {
+
+        expenseTable = []
+
+    } 
+    
+    expenseTable.push(expenseSubmission);
+
+    /* Dialog function */
+
+    if (!expenseSubmission.date) {
+        dialog.showModal();
+    } else if (!expenseSubmission.source) {
+        dialog.showModal();
+    } else if (!expenseSubmission.amount) {
+        dialog.showModal();
+    } else {
+        localStorage.setItem('expenses', JSON.stringify(expenseTable));
+        location.reload();
+    }
+});
+
+
+
+
+/* take information from incomes array and send it to income table */
+
+
+const incomePosts = document.querySelector('#income-elements');
+const incomeSebmit = document.querySelector('#income');
+const incomePage = document.querySelector('#iincome-elements');
+
+function renderIncome(){
+    let storedIncomes = JSON.parse(localStorage.getItem('incomes'));
+    console.log('it works');
+    if (storedIncomes) {
+        for(let i = 0; i < storedIncomes.length; i++){
+            let storedIncome = storedIncomes[i];
+            let incomePostTable = document.createElement('tr');
+            let incomePostDate = document.createElement('td');
+            let incomePostSource = document.createElement('td');
+            let incomePostAmount = document.createElement('td');
+            let incomePostAccount = document.createElement('td');
+
+
+           incomePostDate.innerHTML = storedIncome.date;
+           incomePostSource.innerHTML = storedIncome.source;
+           incomePostAmount.innerHTML = storedIncome.amount;
+           incomePostAccount.innerHTML = storedIncome.account;
+
+
+           incomePosts.appendChild(incomePostTable);
+           incomePostTable.appendChild(incomePostDate);
+           incomePostTable.appendChild(incomePostSource);
+           incomePostTable.appendChild(incomePostAmount);
+           incomePostTable.appendChild(incomePostAccount);
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', renderIncome);
+
+
+/* take information from incomes array and send it to income table */
+
+
+const expensePosts = document.querySelector('#expense-elements');
+const expenseSebmit = document.querySelector('#expense');
+const expensePage = document.querySelector('#expense-elements');
+
+function renderExpense() {
+    let storedExpenses = JSON.parse(localStorage.getItem('expenses'));
+    console.log('it work2');
+    if (storedExpenses) {
+        for (let i = 0; i < storedExpenses.length; i++) {
+            let storedExpense = storedExpenses[i];
+            let expensePostTable = document.createElement('tr');
+            let expensePostDate = document.createElement('td');
+            let expensePostSource = document.createElement('td');
+            let expensePostAmount = document.createElement('td');
+            let expensePostAccount = document.createElement('td');
+
+
+            expensePostDate.innerHTML = storedExpense.date;
+            expensePostSource.innerHTML = storedExpense.source;
+            expensePostAmount.innerHTML = storedExpense.amount;
+            expensePostAccount.innerHTML = storedExpense.account;
+
+
+            expensePosts.appendChild(expensePostTable);
+            expensePostTable.appendChild(expensePostDate);
+            expensePostTable.appendChild(expensePostSource);
+            expensePostTable.appendChild(expensePostAmount);
+            expensePostTable.appendChild(expensePostAccount);
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', renderExpense);
+
+
+/* Math functions */
+
+function usBankMath() {
+    var usb = JSON.parse(localStorage.getItem('incomes'));
+    total = 0;
+    i = 0;
+    for (i = 0; i < amount.length; i++) {
+        total += parseFloat(usb[i].amount);
+    } console.log(total);
+}
+
+usBankMath();
+ 
