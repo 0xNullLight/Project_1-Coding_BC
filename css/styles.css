@@ -94,11 +94,16 @@ header.old-scheme {
   background-color: #575757; /* Darker hover background */
 }
 
+
+
 /* inputs content styling */
+
+
 .inputs {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .input {
@@ -113,7 +118,9 @@ header.old-scheme {
     text-align: center;
 }
 
+
 /* cards styling */
+
 .cards {
   display: flex;
   justify-content: center;
@@ -121,18 +128,20 @@ header.old-scheme {
 }
 
 .card {
+color:#2e2e2e;
   margin: 25px 15px 25px 15px;
   padding: 10px;
   text-align: center;
-  color: black;
+  width: 200px;
 }
 
 .card p {
     margin-bottom: 0;
-    color: black;
+    font-size: 20px;
 }   
 
 /* Input stylig */
+
 .select {
   margin: 20px 0px 20px 0px;
 }
@@ -150,7 +159,9 @@ header.old-scheme {
     text-align: center;
 }
 
+
 /* Submit button styling */
+
 .submit {
   display: block;
   margin-top: 20px;
@@ -165,10 +176,11 @@ header.old-scheme {
 }
 
 /* Icons */
+
 .icon-home:before {
     position: absolute;
     content: '';
-    background:url(../icons/Home.png);
+    background:url(/icons/Home.png);
     background-size:cover;
     position:absolute;
     width:20px;
@@ -179,7 +191,7 @@ header.old-scheme {
 .icon-income:before {
     position: absolute;
     content: '';
-    background:url(../icons/Income.png);
+    background:url(/icons/Income.png);
     background-size:cover;
     position:absolute;
     width:20px;
@@ -190,7 +202,7 @@ header.old-scheme {
 .icon-expense:before {
     position: absolute;
     content: '';
-    background:url(../icons/Expense.png);
+    background:url(/icons/Expense.png);
     background-size:cover;
     position:absolute;
     width:20px;
@@ -201,7 +213,7 @@ header.old-scheme {
 .icon-subscription:before { 
     position: absolute;
     content: '';
-    background:url(../icons/Expense.png);
+    background:url(/icons/Expense.png);
     background-size:cover;
     position:absolute;
     width:20px;
@@ -209,7 +221,9 @@ header.old-scheme {
     margin-left: -25px;
 }
 
+
 /* dialog styling */
+
 dialog {
   position: absolute;
   align-self: center;
@@ -223,6 +237,8 @@ dialog {
 #ok:hover, #cancel:hover {
   background-color: #444;
 }
+
+
 
 form p {
   text-align: center;
@@ -259,6 +275,7 @@ button {
   cursor: pointer;
 }
 
+
 /* Dark mode sidebar styling */
 #nav_sidebar.old-scheme {
   background-color: #333; /* Dark background for sidebar */
@@ -284,7 +301,7 @@ main {
 }
 
 #home-page {
-    display: block; /* Show home page by default */
+    margin-left: -250px;
 }
 
 /* Footer styling */
@@ -334,18 +351,49 @@ footer {
 }
 
 .styled-table thead.old-scheme {
-  background-color: #333; /* Even darker background for table headers in dark mode */
+  background-color: #6D5D6E; /* Lighter background for table header */
 }
 
-/* Footer link styling */
-footer a {
-  color: #e0e0e0; /* Light text color */
-  text-decoration: none;
+/* Button styling */
+button {
+  border: none;
 }
 
-footer a:hover {
-  text-decoration: underline;
+
+
+/* Tablets and small desktops (600px - 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+  #nav_sidebar {
+    top: 0px;
+    max-width: 150px; /* Adjust sidebar width */
+    top: 60px; /* Adjust based on header height */
+     /* Adjust height based on header height */
+  }
+
+  #nav_sidebar a {
+    width: 50px;
+    padding: 0;
+    font-size: 15px;
+    margin-left: 45px;
+    margin-bottom: 30px;
+  }
+
+  main {
+    margin-left: 200px; /* Margin for sidebar */
+    width: calc(100% - 200px); /* Full width minus sidebar width */
+  }
+
+  /* Adjust card layout on tablets and small desktops */
+  .cards {
+    flex-wrap: wrap; /* Allow cards to wrap */
+    gap: 15px; /* Adjust gap between cards */
+  }
+
+  .card {
+    width: calc(50% - 15px); /* Two cards per row with space between */
+  }
 }
+
 
 /* Mobile devices (up to 600px) */
 @media (max-width: 600px) {
@@ -362,6 +410,8 @@ footer a:hover {
     position: relative; /* Position relative for better stacking */
   }
 
+  
+
   main {
     margin-left: 0; /* No margin for main content on mobile */
     width: 100%; /* Full width */
@@ -374,34 +424,22 @@ footer a:hover {
   /* Adjust card layout on mobile */
   .cards {
     flex-direction: column; /* Stack cards vertically */
+    align-items: center;
+    justify-content: center;
     gap: 10px; /* Reduced gap between cards */
+    width: 400px;
+    margin-left: 300px;
   }
 
   .card {
-    width: 100%; /* Full width for cards on mobile */
-  }
-}
-
-/* Tablets and small desktops (600px - 992px) */
-@media (min-width: 601px) and (max-width: 992px) {
-  #nav_sidebar {
-    width: 200px; /* Adjust sidebar width */
-    top: 60px; /* Adjust based on header height */
-    height: calc(100% - 60px); /* Adjust height based on header height */
+    width: 25%; /* Full width for cards on mobile */
   }
 
-  main {
-    margin-left: 200px; /* Margin for sidebar */
-    width: calc(100% - 200px); /* Full width minus sidebar width */
+  .inputs {
+    margin-left: 250px;
   }
 
-  /* Adjust card layout on tablets and small desktops */
-  .cards {
-    flex-wrap: wrap; /* Allow cards to wrap */
-    gap: 15px; /* Adjust gap between cards */
-  }
-
-  .card {
-    width: calc(50% - 15px); /* Two cards per row with space between */
+  .input-p {
+    margin-left: 250px;
   }
 }
