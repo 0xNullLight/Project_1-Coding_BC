@@ -1,32 +1,35 @@
-/* reset.css */
+/* Reset CSS for consistent styling */
 
+/* Remove default margins, padding, and set box-sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  html {
+}
+
+/* Set full height for root and basic styling for body */
+html {
     height: 100%;
-  }
-  
-  body {
+}
+body {
     min-height: 100%;
     line-height: 1;
     font-family: sans-serif;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
+}
+
+/* Default font size for headings */
+h1, h2, h3, h4, h5, h6 {
     font-size: 100%;
-  }
-  
-  input, select, option, optgroup, textarea, button,
-  pre, code {
+}
+
+/* Consistent font size and family for form elements and code */
+input, select, option, optgroup, textarea, button,
+pre, code {
     font-size: 100%;
     font-family: inherit;
-  }
-  
-  ol, ul {
-    list-style: none;
-  }
+}
 
+/* Remove default list styling */
+ol, ul {
+    list-style: none;
+}
