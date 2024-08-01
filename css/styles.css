@@ -360,21 +360,20 @@ button {
 }
 
 
-
 /* Tablets and small desktops (600px - 992px) */
 @media (min-width: 601px) and (max-width: 992px) {
   #nav_sidebar {
     top: 0px;
-    max-width: 150px; /* Adjust sidebar width */
+    max-width: 200px; /* Adjust sidebar width */
     top: 60px; /* Adjust based on header height */
      /* Adjust height based on header height */
   }
 
   #nav_sidebar a {
-    width: 50px;
+    width: 40px;
     padding: 0;
     font-size: 15px;
-    margin-left: 45px;
+    margin-left: 75px;
     margin-bottom: 30px;
   }
 
@@ -396,7 +395,7 @@ button {
 
 
 /* Mobile devices (up to 600px) */
-@media (max-width: 600px) {
+@media (min-width: 432px) and (max-width: 600px) {
   #nav_sidebar {
     width: 100%; /* Full width for sidebar on mobile */
     height: auto; /* Auto height */
@@ -443,3 +442,52 @@ button {
     margin-left: 250px;
   }
 }
+
+
+@media screen and (max-width: 413px) {
+
+  .cards {
+    display: block;
+    margin-left: 50%;
+  }
+
+  .inputs {
+    display: block;
+    margin-left: 45%;
+  }
+  
+  .input-p {
+    margin-left: 40%;
+  }
+
+  main {
+    width: 100%;
+    display: block;
+    margin-left: 50px;
+  }
+
+}
+
+@media (min-width: 414px) and (max-width: 431px) {
+  
+  .cards {
+    display: block;
+    margin-left: 50%;
+  }
+
+  main {
+    width: 100%;
+    display: block;
+    margin-left: 50px;
+  }
+
+  .inputs {
+    display: block;
+    margin-left: 45%;
+  }
+  
+  .input-p {
+    margin-left: 40%;
+  }
+}
+
