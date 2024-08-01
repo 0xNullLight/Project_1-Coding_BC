@@ -329,83 +329,43 @@ console.log(usb.filter(
 /* Filter accounts and display total of each account on card */
 
 
-/* Us Bank Card total */
+/* Card total */
 
-function usBankTotal() {
-    var usb = JSON.parse(localStorage.getItem('incomes'));
-    usbTotal = 0;
+function bankTotal(accountName) {
+    var usb = JSON.parse(localStorage.getItem('incomes')) ?? [];
+    let usbTotal = 0;
     for (let i = 0; i < usb.length; i++) {
-        if (usb[i].account === 'Us Bank') {
+        if (usb[i].account === accountName) {
             usbTotal += parseFloat(usb[i].amount);
-            console.log(`Us Bank total $: ${usbTotal}`);
-            document.getElementById('usBankAccountAmount').innerHTML = `${usbTotal} $`;
+            console.log(`${accountName} total $: ${usbTotal}`);
+        }
+    } 
+   
+
+    var xp = JSON.parse(localStorage.getItem('expenses')) ?? [];
+    let xpTotal = 0;
+    for (let i = 0; i < xp.length; i++) {
+        if (xp[i].account === accountName) {
+            xpTotal += parseFloat(xp[i].amount);
+            console.log(`${accountName} total $: ${xpTotal}`);
         }
     }
+    return usbTotal - xpTotal;
 }
 
-usBankTotal();
+let usbTotal = bankTotal('Us Bank');
+document.getElementById('usBankAccountAmount').innerHTML = `${usbTotal} $`;
 
-/* Wells Fargo Card total */
+usbTotal = bankTotal('Wells Fargo');
+document.getElementById('wfBankAccountAmount').innerHTML = `${usbTotal} $`;
 
-function wellsFargoBankTotal() {
-    var usb = JSON.parse(localStorage.getItem('incomes'));
-    wfbTotal = 0;
-    for (let i = 0; i < usb.length; i++) {
-        if (usb[i].account === 'Wells Fargo') {
-            wfbTotal += parseFloat(usb[i].amount);
-            console.log(`Wells Fargo total $: ${wfbTotal}`);
-            document.getElementById('wfBankAccountAmount').innerHTML = `${wfbTotal} $`;
-        }
-    }
-}
+usbTotal = bankTotal('Wife`s Account');
+document.getElementById('wifesAccountAmount').innerHTML = `${usbTotal} $`;
 
-wellsFargoBankTotal();
+usbTotal = bankTotal('Cash Account');
+document.getElementById('cashAccountAmount').innerHTML = `${usbTotal} $`;
 
-/* Cash Account Card total */
-
-function cashAccountTotal() {
-    var usb = JSON.parse(localStorage.getItem('incomes'));
-    cashTotal = 0;
-    for (let i = 0; i < usb.length; i++) {
-        if (usb[i].account === 'Cash Account') {
-            cashTotal += parseFloat(usb[i].amount);
-            console.log(`Cash Account total $: ${cashTotal}`);
-            document.getElementById('cashAccountAmount').innerHTML = `${cashTotal} $`;
-        }
-    }
-}
-
-cashAccountTotal();
-
-/* Wife`s Account Card total */
-
-function wifesAccountTotal() {
-    var usb = JSON.parse(localStorage.getItem('incomes'));
-    waTotal = 0;
-    for (let i = 0; i < usb.length; i++) {
-        if (usb[i].account === 'Wife`s Account') {
-            waTotal += parseFloat(usb[i].amount);
-            console.log(`Wife's Account total $: ${waTotal}`);
-            document.getElementById('wifesAccountAmount').innerHTML = `${waTotal} $`;
-        }
-    }
-}
-
-wifesAccountTotal();
+usbTotal = bankTotal('Savings Account');
+document.getElementById('savingAccountAmount').innerHTML = `${usbTotal} $`;
 
 
-/* Sawing Account Card Total */
-
-function savingAccountTotal() {
-    var usb = JSON.parse(localStorage.getItem('incomes'));
-    saTotal = 0;
-    for (let i = 0; i < usb.length; i++) {
-        if (usb[i].account === 'Savings Account') {
-            saTotal += parseFloat(usb[i].amount);
-            console.log(`Saving Account total $: ${saTotal}`);
-            document.getElementById('savingAccountAmount').innerHTML = `${saTotal} $`;
-        }
-    }
-}
-
-savingAccountTotal();
