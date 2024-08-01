@@ -64,7 +64,7 @@ header.old-scheme {
   position: fixed; /* Fix the sidebar to the left */
   top: 60px; /* Adjust based on header height */
   left: 0;
-  width: 20px; /* Thin width when not hovered */
+  width: 40px; /* Thin width when not hovered */
   height: calc(100% - 60px); /* Full height minus header height */
   background-color: #343a40; /* Dark background for sidebar */
   color: #e0e0e0; /* Light text color */
@@ -84,7 +84,7 @@ header.old-scheme {
   padding: 15px 50px;
   color: #e0e0e0; /* Light text color */
   text-decoration: none;
-  margin: 5px 10px;
+  margin: 5px 20px;
   border-radius: 10px;
   font-size: 1em;
   transition: background-color 0.3s ease;
