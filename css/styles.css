@@ -16,15 +16,15 @@ body {
 
 /* Dark mode styling */
 body.old-scheme {
-  background-color: #2e2e2e; /* Dark scheme background color */
+  background-color: #4f6490; /* Dark scheme background color */
   color: #e0e0e0; /* Light text color for dark mode */
 }
 
 /* Flexbox layout for body */
-body {
+/* body {
   display: flex;
   flex-direction: column;
-}
+} */
 
 /* Header styling (Light Scheme) */
 header {
@@ -40,6 +40,10 @@ header {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
+h1 {
+    text-align: center;
+}
+
 /* Dark mode header styling */
 header.old-scheme {
   background-color: #4F4557; /* Dark background for header */
@@ -47,12 +51,13 @@ header.old-scheme {
 }
 
 /* Main container adjustment to account for fixed header */
+/* Adjust based on header height */
 .container-fluid {
   flex: 1;
-  margin-top: 60px; /* Adjust based on header height */
+  margin-top: 60px; 
   display: flex;
   flex-direction: row;
-}
+} 
 
 /* Sidebar styling (Light Scheme) */
 #nav_sidebar {
@@ -76,10 +81,10 @@ header.old-scheme {
 
 #nav_sidebar a {
   display: block;
-  padding: 15px 20px;
+  padding: 15px 50px;
   color: #e0e0e0; /* Light text color */
   text-decoration: none;
-  margin: 5px 0;
+  margin: 5px 10px;
   border-radius: 10px;
   font-size: 1em;
   transition: background-color 0.3s ease;
@@ -88,6 +93,188 @@ header.old-scheme {
 #nav_sidebar a:hover {
   background-color: #575757; /* Darker hover background */
 }
+
+
+
+/* inputs content styling */
+
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    margin: 40px;
+    margin: 5rem;
+}
+
+.input-p {
+    text-align: center;
+}
+
+
+/* cards styling */
+
+.cards {
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+}
+
+.card {
+color:#2e2e2e;
+  margin: 25px 15px 25px 15px;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+}
+
+.card p {
+    margin-bottom: 0;
+    font-size: 20px;
+}   
+
+/* Input stylig */
+
+.select {
+  margin: 20px 0px 20px 0px;
+}
+
+#select {
+  margin-top: 10px;
+  width: 100%;
+}
+
+#option-select {
+  width: 100%;
+}
+
+.select-header {
+    text-align: center;
+}
+
+
+/* Submit button styling */
+
+.submit {
+  display: block;
+  margin-top: 20px;
+  background-color: #333;
+  color: white;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.submit:hover {
+  background-color: #444;
+}
+
+/* Icons */
+
+.icon-home:before {
+    position: absolute;
+    content: '';
+    background:url(/icons/Home.png);
+    background-size:cover;
+    position:absolute;
+    width:20px;
+    height:20px;
+    margin-left: -25px;
+}
+
+.icon-income:before {
+    position: absolute;
+    content: '';
+    background:url(/icons/Income.png);
+    background-size:cover;
+    position:absolute;
+    width:20px;
+    height:20px;
+    margin-left: -25px;
+}
+
+.icon-expense:before {
+    position: absolute;
+    content: '';
+    background:url(/icons/Expense.png);
+    background-size:cover;
+    position:absolute;
+    width:20px;
+    height:20px;
+    margin-left: -25px;
+}
+
+.icon-subscription:before { 
+    position: absolute;
+    content: '';
+    background:url(/icons/Expense.png);
+    background-size:cover;
+    position:absolute;
+    width:20px;
+    height:20px;
+    margin-left: -25px;
+}
+
+
+/* dialog styling */
+
+dialog {
+  position: absolute;
+  align-self: center;
+  margin-left: 47%;
+}
+
+#ok, #cancel {
+    background-color: #333;
+}
+
+#ok:hover, #cancel:hover {
+  background-color: #444;
+}
+
+
+
+form p {
+  text-align: center;
+  margin: 20px;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Form styling */
+form {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 
 /* Dark mode sidebar styling */
 #nav_sidebar.old-scheme {
@@ -111,6 +298,10 @@ main {
 /* Page styling */
 .page {
   display: none; /* Hide all pages by default */
+}
+
+#home-page {
+    margin-left: -250px;
 }
 
 /* Footer styling */
@@ -166,4 +357,89 @@ footer {
 /* Button styling */
 button {
   border: none;
+}
+
+
+
+/* Tablets and small desktops (600px - 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+  #nav_sidebar {
+    top: 0px;
+    max-width: 150px; /* Adjust sidebar width */
+    top: 60px; /* Adjust based on header height */
+     /* Adjust height based on header height */
+  }
+
+  #nav_sidebar a {
+    width: 50px;
+    padding: 0;
+    font-size: 15px;
+    margin-left: 45px;
+    margin-bottom: 30px;
+  }
+
+  main {
+    margin-left: 200px; /* Margin for sidebar */
+    width: calc(100% - 200px); /* Full width minus sidebar width */
+  }
+
+  /* Adjust card layout on tablets and small desktops */
+  .cards {
+    flex-wrap: wrap; /* Allow cards to wrap */
+    gap: 15px; /* Adjust gap between cards */
+  }
+
+  .card {
+    width: calc(50% - 15px); /* Two cards per row with space between */
+  }
+}
+
+
+/* Mobile devices (up to 600px) */
+@media (max-width: 600px) {
+  #nav_sidebar {
+    width: 100%; /* Full width for sidebar on mobile */
+    height: auto; /* Auto height */
+    top: 0;
+    left: 0;
+    display: none; /* Hide sidebar by default */
+  }
+
+  #nav_sidebar.show {
+    display: block; /* Show sidebar when activated */
+    position: relative; /* Position relative for better stacking */
+  }
+
+  
+
+  main {
+    margin-left: 0; /* No margin for main content on mobile */
+    width: 100%; /* Full width */
+  }
+
+  .container-fluid {
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  /* Adjust card layout on mobile */
+  .cards {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Reduced gap between cards */
+    width: 400px;
+    margin-left: 300px;
+  }
+
+  .card {
+    width: 25%; /* Full width for cards on mobile */
+  }
+
+  .inputs {
+    margin-left: 250px;
+  }
+
+  .input-p {
+    margin-left: 250px;
+  }
 }
