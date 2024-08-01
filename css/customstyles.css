@@ -358,3 +358,88 @@ footer {
 button {
   border: none;
 }
+
+
+
+/* Tablets and small desktops (600px - 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+  #nav_sidebar {
+    top: 0px;
+    max-width: 150px; /* Adjust sidebar width */
+    top: 60px; /* Adjust based on header height */
+     /* Adjust height based on header height */
+  }
+
+  #nav_sidebar a {
+    width: 50px;
+    padding: 0;
+    font-size: 15px;
+    margin-left: 45px;
+    margin-bottom: 30px;
+  }
+
+  main {
+    margin-left: 200px; /* Margin for sidebar */
+    width: calc(100% - 200px); /* Full width minus sidebar width */
+  }
+
+  /* Adjust card layout on tablets and small desktops */
+  .cards {
+    flex-wrap: wrap; /* Allow cards to wrap */
+    gap: 15px; /* Adjust gap between cards */
+  }
+
+  .card {
+    width: calc(50% - 15px); /* Two cards per row with space between */
+  }
+}
+
+
+/* Mobile devices (up to 600px) */
+@media (max-width: 600px) {
+  #nav_sidebar {
+    width: 100%; /* Full width for sidebar on mobile */
+    height: auto; /* Auto height */
+    top: 0;
+    left: 0;
+    display: none; /* Hide sidebar by default */
+  }
+
+  #nav_sidebar.show {
+    display: block; /* Show sidebar when activated */
+    position: relative; /* Position relative for better stacking */
+  }
+
+  
+
+  main {
+    margin-left: 0; /* No margin for main content on mobile */
+    width: 100%; /* Full width */
+  }
+
+  .container-fluid {
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  /* Adjust card layout on mobile */
+  .cards {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Reduced gap between cards */
+    width: 400px;
+    margin-left: 300px;
+  }
+
+  .card {
+    width: 25%; /* Full width for cards on mobile */
+  }
+
+  .inputs {
+    margin-left: 250px;
+  }
+
+  .input-p {
+    margin-left: 250px;
+  }
+}
