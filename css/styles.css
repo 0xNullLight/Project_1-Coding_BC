@@ -297,7 +297,7 @@ main {
 
 /* Page styling */
 .page {
-   /* Hide all pages by default */
+  display: none; /* Hide all pages by default */
 }
 
 #home-page {
